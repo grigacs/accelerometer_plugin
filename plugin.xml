@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-one-ms-acceleration" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>Cordova acceleration 1ms</name>
+  <description>Cordova device plugin</description>
+
+  	<js-module name="accplugin" src="www/accplugin.js">
+	  	<clobbers target="accplugin" />
+	</js-module>
+	<js-module name="Acceleration" src="www/Acceleration.js">
+	  	<clobbers target="Acceleration" />
+	</js-module>
+	
+
+		<platform name="android">
+			<config-file parent="/*" target="res/xml/config.xml">
+				<feature name="Accelerometer">
+					<param name="android-package" value="org.apache.cordova.devicemotion.CordovaAccelerator" />
+				</feature>
+			</config-file>
+
+			<source-file src="src/android/CordovaAccelerator.java" target-dir="src/org/apache/cordova/devicemotion" />
+		</platform>
+	</plugin>
